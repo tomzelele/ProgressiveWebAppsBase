@@ -64,3 +64,16 @@ app.controller('lojaCtrl', function ($scope, $http, $routeParams) {
         return value.preco >= $scope.min && value.preco <= $scope.max;
     };
 });
+
+
+
+if('serviceWorker' in navigator){
+    window.addEventListener('load', function(){
+        navigator.serviceWorker.register("Loja_SW.js")
+                .then(function(registration){
+                    console.log("Service Worker OK !!!");
+                }, function(err){
+                    console.log("Service Worker NOT OK !!!!", err);
+                });
+    });
+}
